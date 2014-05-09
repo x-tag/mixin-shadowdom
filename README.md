@@ -4,25 +4,28 @@
 # Example
 
 ```
-// describe usage
-
+xtag.register('x-shady-foo', {
+// 1. Add the mixin
+  mixins: ['shadowdom'],
+  lifecycle: {
+    created: function(){
+      var self = this;
+      ['rise','repeat'].forEach(function(item){
+        var li = document.createElement('li');
+        li.textContent = item;
+        self.appendChild(li);
+      });
+    }
+  },
+// 2.  define the shadow root
+  shadow: '<h1>HI</h1><ul><content select="li"></content></ul>'
+});
 
 ```
 
 # Download it
-
-
-
-# Dev Setup
-
 ```
-Fork this repo, rename it, then clone it.
-
-$ npm install	// install bower tasks
-$ bower install	// install components
-$ grunt build   // build
-$ grunt bump-push  // bump the version number, tag it and push to origin master
-
+bower install x-tag-mixin-shadowdom
 ```
 
 
