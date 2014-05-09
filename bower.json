@@ -1,0 +1,18 @@
+{
+  "name": "shadowdom-mixin",
+  "description": "Enables ShadowDOM for X-Tag components.",
+  "version": "0.0.0",
+  "author": "Arron Schaar",
+  "keywords": [
+    "mixin",
+    "web-components",
+    "x-tag"
+  ],
+  "main": [
+    "src/mixin-shadowdom.js"
+  ],
+  "dependencies": {
+    "x-tag-core": "*",
+    "ShadowDOM": "~0.2.3"
+  }
+}

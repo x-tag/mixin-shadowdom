@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>ShadowDOM Mixin - X-Tag</title>
+
+  <link rel="stylesheet" type="text/css" href="x-tag-components.css"/>
+  <link rel="stylesheet" type="text/css" href="../src/shadowdom.css"/>
+
+
+  <script type="text/javascript" src="x-tag-components.js"></script>
+  <script type="text/javascript" src="../src/mixin-shadowdom.js"></script>
+
+
+
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body id="app">
+
+
+  <!--throws error in shadowDOM polyfill <x-shady-foo></x-shady-foo> -->
+
+  <script type="text/javascript">
+
+    xtag.register('x-shady-foo', {
+      mixins: ['shadowdom'],
+      lifecycle: {
+        created: function(){
+          console.log('x-shady-foo.created', this);
+          var self = this;
+          ['rise','repeat'].forEach(function(item){
+            var li = document.createElement('li');
+            li.textContent = item;
+            self.appendChild(li);
+          });
+        }
+      },
+      shadow: '<h1>HI</h1><ul><content select="li"></content></ul>'
+    });
+
+    document.addEventListener('DOMComponentsLoaded', function(){
+      // node injection works
+      document.querySelector('#app').appendChild(document.createElement('x-shady-foo'));
+    });
+
+  </script>
+
+</body>
+</html>
