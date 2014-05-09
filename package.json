@@ -1,7 +1,7 @@
 {
   "name": "shadowdom-mixin",
   "description": "Enables ShadowDOM for X-Tag components.",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Arron Schaar",
   "dependencies": {},
   "devDependencies": {
